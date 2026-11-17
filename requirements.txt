@@ -1,0 +1,5 @@
+dvc>=3
+pandas
+scikit-learn
+mlflow
+joblib

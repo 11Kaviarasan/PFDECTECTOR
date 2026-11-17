@@ -1,0 +1,5 @@
+outs:
+- md5: cf19f1c1be1cd588d23aaca486776695
+  size: 54972
+  hash: md5
+  path: v7.pkl
