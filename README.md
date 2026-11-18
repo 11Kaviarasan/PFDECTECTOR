@@ -5,7 +5,7 @@ A small machine learning project that predicts whether a student will **Pass** o
 It uses:
 - **Python + scikit-learn** to train the model
 - **MLflow** to record every training run
-- **DVC** to keep versions of the data and models
+- **FastAPI** to use the model from a web page
 
 ## 1. Setup (one time)
 
@@ -40,39 +40,22 @@ mlflow ui --backend-store-uri sqlite:///mlflow.db
 
 Then open http://127.0.0.1:5000 in your browser and click the `students` experiment.
 
-## 4. Save versions with DVC
-
-After training, save the new model and send it to storage:
+## 4. Use the model in the browser
 
 ```powershell
-dvc add models/model.pkl
-dvc push
+python -m uvicorn app:app --reload
 ```
 
-Other useful commands:
+Open http://127.0.0.1:8000 to enter a student's details and see Pass or Fail on a scatter plot.
+The API docs are at http://127.0.0.1:8000/docs.
 
-| Command | What it does |
-|---|---|
-| `dvc add <file>` | start tracking a file |
-| `dvc push` | upload tracked files to storage |
-| `dvc pull` | download tracked files |
-| `dvc checkout` | restore files to match your current Git version |
-| `dvc status` | check if a tracked file changed |
-
-## 5. Go back to an old version
-
-```powershell
-git checkout <old-commit>
-dvc checkout
-```
-
-Go back to the latest with `git checkout main` and `dvc checkout`.
-
-## 6. Project files
+## 5. Project files
 
 | File or folder | What it is |
 |---|---|
 | `ML_TRACKING.py` | the training code |
+| `app.py` | the FastAPI app |
+| `static/index.html` | the web page with the scatter plot |
 | `dataset/` | the student data (`student_cleaned.csv` is used for training) |
 | `models/` | saved models |
 | `requirements.txt` | the Python packages needed |

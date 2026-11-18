@@ -1,5 +1,0 @@
-outs:
-- md5: 0f947e38beb1090a96a8343f32979104
-  size: 16099
-  hash: md5
-  path: student_cleaned.csv
