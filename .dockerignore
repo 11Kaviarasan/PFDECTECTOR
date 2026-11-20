@@ -16,3 +16,4 @@ dataset/students.csv
 dataset/students_large.csv
 models/v*.pkl
 models/student_model.pkl
+render.yaml
