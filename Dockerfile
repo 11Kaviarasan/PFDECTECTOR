@@ -9,7 +9,7 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # only what the API needs (see .dockerignore)
-COPY app.py ML_TRACKING.py ./
+COPY src/ src/
 COPY dataset/student_cleaned.csv dataset/
 COPY models/model.pkl models/
 
@@ -24,4 +24,4 @@ EXPOSE 10000
 HEALTHCHECK --interval=30s --timeout=5s --start-period=20s \
     CMD python -c "import os, urllib.request; urllib.request.urlopen('http://127.0.0.1:' + os.environ['PORT'] + '/openapi.json')"
 
-CMD ["sh", "-c", "uvicorn app:app --host 0.0.0.0 --port ${PORT}"]
+CMD ["sh", "-c", "uvicorn src.app:app --host 0.0.0.0 --port ${PORT}"]

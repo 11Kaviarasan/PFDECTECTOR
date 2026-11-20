@@ -3,7 +3,7 @@ from fastapi import FastAPI, HTTPException
 from fastapi.responses import RedirectResponse
 from pydantic import BaseModel, Field
 
-from ML_TRACKING import train
+from src.ML_TRACKING import train
 
 app = FastAPI(title="Student Pass/Fail API")
 

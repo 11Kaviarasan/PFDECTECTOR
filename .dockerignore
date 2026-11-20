@@ -7,7 +7,7 @@ __pycache__
 mlflow.db
 mlruns
 notebooks
-test_api.py
+tests
 README.md
 Dockerfile
 Dockerfile
