@@ -9,7 +9,7 @@ mlruns
 notebooks
 test_api.py
 README.md
-dockerfile
+Dockerfile
 Dockerfile
 .dockerignore
 dataset/students.csv
